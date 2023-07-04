@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+{% block 'title' %}
+        Edite Students
+{% endblock %}
+{% block 'corps' %}
+<style>
+table{
+    height: 100px;
+    width: 900px;
+    margin-top: 100px;
+    text-align: center;
+}
+h1{
+    margin-top: 100px;
+}
+</style>
+<p>.</p>
+<h1 class="text-center">Edite Students</h1>
+<div class="contenair">
+        <div class="col col-sm-11" id="info" >
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Date de naissance</th>
+                        <th>Téléphone</th>
+                        <th>Option</th>
+                        <th>Niveau</th>
+                        <th>Matricule</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>{{data.nom}}</td>
+                    <td>{{data.prenom}}</td>
+                    <td>{{data.adresse}}</td>
+                    <td>{{data.date_naiss}}</td>
+                    <td>{{data.tel}}</td>
+                    <td>{{data.option}}</td>
+                    <td>{{data.niveau}}</td>
+                    <td>{{data.matricule}}</td>
+                    <a href="{% url 'urlupdatestudent' i.secrete_key %}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{% url 'urldeletestudent' i.secrete_key %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                </tr>
+            </table>
+        </div>
+        <div class="col col-sm-1" id="" ></div>
+    </div>
+</div>
+<p></p>
+{% endblock %}

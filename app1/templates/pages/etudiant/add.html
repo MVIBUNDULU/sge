@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block 'corps' %}
+<style>
+    #form {
+        margin-left: -10px;
+        box-shadow: 20px 20px 20px;
+        
+    }
+    #btn{
+        background-color: green;
+        width: 100%;
+        color: white;
+    }
+    .img{
+        margin-top: 200px;
+        margin-left: 20px;
+    }
+    #toto{
+        margin-top: 150px;
+    }
+</style>
+<p>.</p>
+<div class="contenair" id="toto">
+    <div class="row">
+        <div class="col col-sm-6">
+            <img class="img" src="{% static 'images/1.jpg' %}" width="500px" alt="">
+        </div>
+        <div class="col-lg-6 col-sm-6">
+            <section class="card" id="form">
+                <header class="card-header">
+                    <h1 class="text-center">ADD Etudiant</h1>
+                </header>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" name="nom" class="form-control" id="name" aria-describedby="name"
+                                placeholder="Saisir le nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" name="prenom" class="form-control" id="prenom" aria-describedby="firstname"
+                                placeholder="Saisir le prénom">
+                        </div>
+                        <div class="form-group">
+                            <label for="niveau">Niveau</label>
+                            <input type="text" name="niveau" class="form-control" id="niveau" aria-describedby="niveau"
+                                placeholder="Saisir le niveau">
+                        </div>
+                        <div class="form-group">
+                            <label for="option">Option</label>
+                            <input type="text" name="option" class="form-control" id="option" aria-describedby="option"
+                                placeholder="Saisir l'option">
+                        </div>
+                        <div class="form-group">
+                            <label for="adresse">Adresse</label>
+                            <input type="text" name="adresse" class="form-control" id="adresse"
+                                aria-describedby="adresse" placeholder="Saisir l'adresse">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">telephone</label>
+                            <input type="text" name="tel" class="form-control" id="telephone"
+                                aria-describedby="telephone" placeholder="Saisir le telephone">
+                        </div>
+                        <div class="form-group">
+                            <label for="matricule">Matricule</label>
+                            <input type="text" name="matricule" class="form-control" id="matricule"
+                                aria-describedby="matricule" placeholder="Saisir le matricule">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date de Naissance</label>
+                            <input type="date" name="datenaiss" class="form-control" id="date" aria-describedby="date"
+                                placeholder="Saisir la date de naissansse">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btn" class="btn btn-success"  aria-describedby="date" value="Enregistrer">
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+    {% endblock %}

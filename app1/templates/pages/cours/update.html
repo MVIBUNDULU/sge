@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block 'corps' %}
+<style>
+    #form {
+        margin-left: -10px;
+        box-shadow: 20px 20px 20px;
+        
+    }
+    #btn{
+        background-color: green;
+        width: 100%;
+        color: white;
+    }
+    .img{
+        margin-top: 100px;
+        margin-left: 20px;
+    }
+    .cont{
+        margin-top: 125px;
+    }
+</style>
+<p>.</p>
+<b>
+    <h1 class="cont"></h1>
+</b>
+<div class="contenair">
+    <div class="row">
+        <div class="col col-sm-6">
+            <img class="img" src="{% static 'images/1.jpg' %}" width="500px" alt="">
+        </div>
+        <div class="col-lg-6 col-sm-6">
+            <section class="card" id="form">
+                <header class="card-header">
+                    <h1 class="text-center">UPDATE Course</h1>
+                </header>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="code">Code</label>
+                            <input value="{{data.code}}" type="text" name="code" class="form-control" id="code" aria-describedby="name"
+                                placeholder="Saisir le code du cours">
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Nom du cours</label>
+                            <input value="{{data.nom}}" type="text" name="nom" class="form-control" id="nom" aria-describedby="firstname"
+                                placeholder="Saisir le code du cours">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input value="{{data.description}}" type="text" name="description" class="form-control" id="description" aria-describedby="description"
+                                placeholder="Saisir le description">
+                        </div>
+                        <div class="form-group">
+                            <label for="prof">Professeur</label>
+                            <input value="{{data.prof}}" type="text" name="prof" class="form-control" id="prof" aria-describedby="prof"
+                                placeholder="Saisir le nom du Professeur">
+                        </div>
+                        <div class="form-group">
+                            <label for="nbcredit">Nombre crédit</label>
+                            <input value="{{data.nbcredit}}" type="text" name="nbcredit" class="form-control" id="nbcredit"
+                                aria-describedby="nbcredit" placeholder="Saisir l'nbcredit">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btn" class="btn btn-success"  aria-describedby="date" value="Enregistrer">
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+    {% endblock %}

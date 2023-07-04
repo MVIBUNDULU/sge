@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block 'title' %}
+All course
+{% endblock %}
+
+{% block 'corps' %}
+<style>
+    table{
+        width: 100%;
+    }
+    #h1{
+        margin-top: 100px;
+    }
+    #table{
+        margin-top: 1px;
+    }
+</style>
+<p>.</p>
+        <h1 class="text-center" id="h1">
+            All courses
+        </h1>
+<section class="card" id="">
+    <header class="card-header">
+    </header>
+    <div class="card-body">
+        <!-- Editable table -->
+        <div class="card">
+            <div class="card-body">
+                <div id="table" class="table-editable">
+                    <a href="{% url 'urladdcours' %}" id="table" class="btn btn-primary">ADD Course</a>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <tr>
+                            <th class="text-center">Code du cours</th>
+                            <th class="text-center">Nom du cours</th>
+                            <th class="text-center">Description du cours</th>
+                            <th class="text-center">Professeur </th>
+                            <th class="text-center">Nombre de Creditation</th>
+                            <th class="text-center">Actions </th>
+                        </tr>
+                        {% for i in data %}
+                        <tr>
+                            <td class="pt-3-half" contenteditable="false">
+                                <a href="{% url 'urleditecourse' i.secrete_key %}">{{i.code}}</a>
+                            </td>
+                            <td class="pt-3-half" contenteditable="true">{{i.nom}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{i.description}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{i.prof}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{i.nbcredit}}</td>
+                            <td>
+                                <a href="{% url 'urlupdatecourse' i.secrete_key %}" class="btn btn-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{% url 'urldeletecourse' i.secrete_key %}" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

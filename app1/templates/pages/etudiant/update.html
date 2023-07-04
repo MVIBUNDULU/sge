@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block 'corps' %}
+<style>
+    #form {
+        margin-left: -10px;
+        box-shadow: 20px 20px 20px;
+        
+    }
+    #btn{
+        background-color: green;
+        width: 100%;
+        color: white;
+    }
+    .img{
+        margin-top: 200px;
+        margin-left: 20px;
+    }
+    .contenair{
+        margin-top: 150px;
+    }
+</style>
+<b>
+    <h1>salut tous</h1>
+</b>
+<div class="contenair">
+    <div class="row">
+        <div class="col col-sm-6">
+            <img class="img" src="{% static 'images/1.jpg' %}" width="500px" alt="">
+        </div>
+        <div class="col-lg-6 col-sm-6">
+            <section class="card" id="form">
+                <header class="card-header">
+                    <h1 class="text-center">UPDATE Etudiant</h1>
+                </header>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" name="nom" value="{{data.nom}}" class="form-control" id="name" aria-describedby="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" name="prenom" value="{{data.prenom}}" class="form-control" id="prenom" aria-describedby="firstname">
+                        </div>
+                        <div class="form-group">
+                            <label for="niveau">Niveau</label>
+                            <input type="text" name="niveau" value="{{data.niveau}}" class="form-control" id="niveau" aria-describedby="niveau">
+                        </div>
+                        <div class="form-group">
+                            <label for="option">Option</label>
+                            <input type="text" name="option" value="{{data.option}}" class="form-control" id="option" aria-describedby="option">
+                        </div>
+                        <div class="form-group">
+                            <label for="adresse">Adresse</label>
+                            <input type="text" name="adresse" value="{{data.adresse}}" class="form-control" id="adresse" aria-describedby="adresse">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">telephone</label>
+                            <input type="text" name="tel" value="{{data.tel}}" class="form-control" id="telephone" aria-describedby="telephone">
+                        </div>
+                        <div class="form-group">
+                            <label for="matricule">Matricule</label>
+                            <input type="text" name="matricule" value="{{data.matricule}}" class="form-control" id="matricule" aria-describedby="matricule">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date de Naissance</label>
+                            <input type="text" name="datenaiss" value="{{data.date_naiss}}" class="form-control" id="date" aria-describedby="date">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btn" class="btn btn-success"  aria-describedby="date" value="Enregistrer">
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    {% endblock %}

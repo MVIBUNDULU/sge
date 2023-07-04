@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block 'corps' %}
+<style>
+    h1{
+        margin-top: 100px;
+    }
+</style>
+<p>.</p>
+<h1 class="text-center">All Etudiant</h1>
+
+<section class="card" id="h1">
+    <header class="card-header">
+    </header>
+    <div class="card-body">
+        <!-- Editable table -->
+        <div class="card">
+            <div class="card-body">
+                <div id="table" class="table-editable">
+                    <a href="{% url 'urladdstudent' %}" class="btn btn-primary">ADD Student</a>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <tr>
+                            <th class="text-center">Nom</th>
+                            <th class="text-center">Prenom</th>
+                            <th class="text-center">Niveau</th>
+                            <th class="text-center">Matricule </th>
+                            <th class="text-center">Option</th>
+                            <th class="text-center">Actions </th>
+                        </tr>
+                        {% for i in data %}
+                        <tr>
+                            <td class="pt-3-half" contenteditable="false">
+                                <a href="{% url 'urleditestudent' i.secrete_key %}">{{i.nom}}</a>
+                            </td>
+                            <td class="pt-3-half" contenteditable="true">{{i.prenom}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{i.niveau}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{i.matricule}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{i.option}}</td>
+                            <td>
+                                <a href="{% url 'urlupdatestudent' i.secrete_key %}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{% url 'urldeletestudent' i.secrete_key %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Editable table -->
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block 'corps' %}
+
+<section class="wrapper">
+    <!--state overview start-->
+    <div class="row state-overview">
+        <div class="col-lg-3 col-sm-6">
+            <a href="{% url 'urlallstudent' %}">
+                <section class="card">
+                    <div class="symbol terques">
+                        <i class="zmdi zmdi-open-in-new"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class="count">
+                            0
+                        </h1>
+                        <p>Gestion Etudiant </p>
+                    </div>
+                </section>
+            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <a href="{% url 'urlallcours' %}">
+                <section class="card">
+                    <div class="symbol red">
+                        <i class="zmdi zmdi-layers"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count2">
+                            0
+                        </h1>
+                        <p>Gestion Cours</p>
+                    </div>
+                </section>
+            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <a href="">
+                <section class="card">
+                    <div class="symbol yellow">
+                        <i class="zmdi zmdi-window-restore"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count3">
+                            0
+                        </h1>
+                        <p>Gestion Notes</p>
+                    </div>
+                </section>
+            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <a href="">
+                <section class="card">
+                    <div class="symbol blue">
+                        <i class="zmdi zmdi-folder-star-alt"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count4">
+                            0
+                        </h1>
+                        <p>Gestion Dossiers </p>
+                    </div>
+                </section>
+            </a>
+        </div>
+    </div>
+    <!--state overview end-->
+</section>
+<div class="contenair">
+    <div class="row">
+        <div class="col col-sm-1"></div>
+        <div class="col col-sm-11">
+            <img src="{% static 'images/1.jpg' %}" width="930px" height="400px" alt="">
+        </div>
+    </div>
+</div>
+<p></p>
+{% endblock %}
